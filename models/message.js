@@ -10,6 +10,10 @@ const MessageSchema = new Schema({
     type: String,
     required: [true, "Message is required."],
   },
+  date: {
+    type: String,
+    required: [true, "Date is required."],
+  },
 });
 
 const Message = models.Messages || model("Messages", MessageSchema);

@@ -2,7 +2,7 @@ import { DatabaseConnect } from "../../../../../lib/database";
 import Message from "../../../../../models/message";
 
 export const POST = async (req, res) => {
-  const { userId, message } = await req.json();
+  const { userId, message, date } = await req.json();
 
   try {
     await DatabaseConnect();
@@ -10,6 +10,7 @@ export const POST = async (req, res) => {
     const newMessage = new Message({
       messenger: userId,
       message,
+      date,
     });
 
     await newMessage.save();
